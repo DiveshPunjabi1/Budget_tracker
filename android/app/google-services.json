@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "819525906495",
+    "project_id": "budget-fb399",
+    "storage_bucket": "budget-fb399.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819525906495:android:158d9d6b6de1f2e15dc88a",
+        "android_client_info": {
+          "package_name": "com.example.my_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_Ot2GpKX38kJXgi23tJas42lsejKYE14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
