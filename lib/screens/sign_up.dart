@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/screens/dashboard.dart';
 import 'package:my_project/screens/login_screen.dart';
 import 'package:my_project/services/auth_service.dart';
 import 'package:my_project/utils/appvalidator.dart';
@@ -38,6 +39,10 @@ class _SignUpViewState extends State<SignUpView> {
       };
 
       await authServices.createUser(data, context);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Dashboard()),
+      );
       setState(() {
         isLoader = false;
       }); // ScaffoldMessenger.of(_formkey.currentContext!).showSnackBar(

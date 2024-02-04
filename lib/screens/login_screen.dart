@@ -1,17 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/screens/dashboard.dart';
 import 'package:my_project/screens/sign_up.dart';
+import 'package:my_project/services/auth_service.dart';
 import 'package:my_project/utils/appvalidator.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   LoginView({super.key});
 
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
 
+class _LoginViewState extends State<LoginView> {
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  var isLoader = false;
+  var authServices = AuthServices();
   Future<void> _submitform() async {
     if (_formkey.currentState!.validate()) {
-      ScaffoldMessenger.of(_formkey.currentContext!).showSnackBar(
-        const SnackBar(content: Text('Form submitted successfully')),
-      );
+      setState(() {
+        isLoader = true;
+      });
+
+      var data = {
+        "email": _emailController.text,
+        "password": _passwordController.text,
+      };
+
+      await authServices.login(data, context);
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => Dashboard()));
+      setState(() {
+        isLoader = false;
+      });
     }
   }
 
@@ -43,6 +65,7 @@ class LoginView extends StatelessWidget {
                 ),
 
                 TextFormField(
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     style: TextStyle(color: Colors.white),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -53,6 +76,7 @@ class LoginView extends StatelessWidget {
                 ),
 
                 TextFormField(
+                    controller: _passwordController,
                     keyboardType: TextInputType.phone,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: _buildInputDecoration("Password", Icons.lock),
@@ -66,8 +90,13 @@ class LoginView extends StatelessWidget {
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFF75104)),
-                        onPressed: _submitform,
-                        child: Text("Login"))),
+                        onPressed: () {
+                          isLoader ? print("Loading") : _submitform();
+                        },
+                        // _submitform,
+                        child: isLoader
+                            ? Center(child: CircularProgressIndicator())
+                            : Text("Create"))),
                 SizedBox(
                   height: 20.0,
                 ),
