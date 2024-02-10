@@ -96,7 +96,7 @@ class _LoginViewState extends State<LoginView> {
                         // _submitform,
                         child: isLoader
                             ? Center(child: CircularProgressIndicator())
-                            : Text("Create"))),
+                            : Text("Login"))),
                 SizedBox(
                   height: 20.0,
                 ),
