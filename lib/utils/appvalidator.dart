@@ -35,4 +35,10 @@ class AppValidator {
     }
     return null;
   }
+    String? isEmptyCheck(value) {
+    if (value!.isEmpty) {
+      return 'Please fill details';
+    }
+    return null;
+  }
 }

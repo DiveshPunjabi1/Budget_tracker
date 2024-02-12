@@ -20,13 +20,13 @@ class HeroCard extends StatelessWidget {
                 Text(
                   "Total Balance",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.white,
-                      height: 2,
+                      height: 1.2,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  "582000",
+                  "₹ 582000",
                   style: TextStyle(
                       fontSize: 50,
                       color: Colors.white,
@@ -50,7 +50,7 @@ class HeroCard extends StatelessWidget {
                   color: Colors.green,
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 8,
                 ),
                 CardOne(
                   color: Colors.red,
@@ -87,13 +87,13 @@ class CardOne extends StatelessWidget {
                 children: [
                   Text(
                     "Credit",
-                    style: TextStyle(color: color, fontSize: 30),
+                    style: TextStyle(color: color, fontSize: 20),
                   ),
                   Text(
-                    "58000",
+                    "₹ 58000",
                     style: TextStyle(
                         color: color,
-                        fontSize: 30,
+                        fontSize: 25,
                         fontWeight: FontWeight.w600),
                   )
                 ],

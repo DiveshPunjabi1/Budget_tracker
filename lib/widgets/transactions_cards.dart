@@ -19,7 +19,7 @@ class TransactionsCard extends StatelessWidget {
             children: [
               Text(
                 "Recent Transactions",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               )
             ],
           ),
@@ -29,7 +29,7 @@ class TransactionsCard extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, indes) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -63,7 +63,7 @@ class TransactionsCard extends StatelessWidget {
                         children: [
                           Expanded(child: Text("Car Rent Oct 2023")),
                           Text(
-                            "8000",
+                            "₹ 8000",
                             style: TextStyle(color: Colors.green),
                           )
                         ],
@@ -81,7 +81,7 @@ class TransactionsCard extends StatelessWidget {
                               ),
                               Spacer(),
                               Text(
-                                "525",
+                                "₹ 525",
                                 style:
                                     TextStyle(color: Colors.grey, fontSize: 13),
                               )

@@ -35,7 +35,10 @@ class _SignUpViewState extends State<SignUpView> {
         "username": _userNameController.text,
         "email": _emailController.text,
         "password": _passwordController.text,
-        "phone": _phoneController.text
+        "phone": _phoneController.text,
+        'remainingAmount':0,
+        'totalCredit':0,
+        'totalDebit':0
       };
 
       await authServices.createUser(data, context);
@@ -117,7 +120,7 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 TextFormField(
                     controller: _passwordController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: _buildInputDecoration("Password", Icons.lock),
                     validator: appValidator.validatePassword),
@@ -136,7 +139,11 @@ class _SignUpViewState extends State<SignUpView> {
                         // _submitform,
                         child: isLoader
                             ? Center(child: CircularProgressIndicator())
-                            : Text("Create"))),
+                            : Text(
+                                "Create",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ))),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -149,7 +156,7 @@ class _SignUpViewState extends State<SignUpView> {
                     },
                     child: Text(
                       "Login",
-                      style: TextStyle(color: Color(0xFFF75104), fontSize: 25),
+                      style: TextStyle(color: Color(0xFFF75104), fontSize: 20),
                     ))
                 // Text(
                 //   "Login",

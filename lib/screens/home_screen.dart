@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_project/screens/login_screen.dart';
+import 'package:my_project/widgets/add_transaction_form.dart';
 import 'package:my_project/widgets/hero_card.dart';
 import 'package:my_project/widgets/transactions_cards.dart';
 
@@ -30,9 +31,29 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  _dialoBuilder(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: AddTransactionForm(),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue.shade900,
+        onPressed: (() {
+          _dialoBuilder(context);
+        }),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.blue.shade900,
         title: Text(

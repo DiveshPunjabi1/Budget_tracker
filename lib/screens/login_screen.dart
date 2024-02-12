@@ -50,7 +50,7 @@ class _LoginViewState extends State<LoginView> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 80.0,
+                  height: 180,
                 ),
                 SizedBox(
                   width: 250,
@@ -72,12 +72,12 @@ class _LoginViewState extends State<LoginView> {
                     decoration: _buildInputDecoration("Email", Icons.email),
                     validator: appValidator.validateEmail),
                 SizedBox(
-                  height: 16.0,
+                  height: 25,
                 ),
 
                 TextFormField(
                     controller: _passwordController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: _buildInputDecoration("Password", Icons.lock),
                     validator: appValidator.validatePassword),
@@ -96,7 +96,11 @@ class _LoginViewState extends State<LoginView> {
                         // _submitform,
                         child: isLoader
                             ? Center(child: CircularProgressIndicator())
-                            : Text("Login"))),
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ))),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -109,7 +113,7 @@ class _LoginViewState extends State<LoginView> {
                     },
                     child: Text(
                       "Create new Account",
-                      style: TextStyle(color: Color(0xFFF75104), fontSize: 25),
+                      style: TextStyle(color: Color(0xFFF75104), fontSize: 20),
                     ))
                 // Text(
                 //   "Login",
