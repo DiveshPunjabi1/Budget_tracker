@@ -31,6 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+
   _dialoBuilder(BuildContext context) {
     return showDialog(
         context: context,
@@ -73,22 +75,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ))
         ],
       ),
-      body: Column(
-        children: [
-          HeroCard(),
-          TransactionsCard(),
-          //   Padding(
-          //     padding: const EdgeInsets.all(15),
-          //     child: Row(
-          //       children: [
-          //         Text(
-          //           "Recent Transactions",
-          //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          //         )
-          //       ],
-          //     ),
-          //   )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HeroCard(userId: userId,),
+            TransactionsCard(),
+            //   Padding(
+            //     padding: const EdgeInsets.all(15),
+            //     child: Row(
+            //       children: [
+            //         Text(
+            //           "Recent Transactions",
+            //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            //         )
+            //       ],
+            //     ),
+            //   )
+          ],
+        ),
       ),
     );
   }

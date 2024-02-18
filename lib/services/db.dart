@@ -8,7 +8,7 @@ class Db {
   Future<void> addUser(data, context) async {
     final userId = FirebaseAuth.instance.currentUser!.uid;
     await users
-        .doc('ABC123')
+        .doc(userId)
         .set(data)
         .then((value) => print("User Added"))
         .catchError((error) {

@@ -36,16 +36,16 @@ class _SignUpViewState extends State<SignUpView> {
         "email": _emailController.text,
         "password": _passwordController.text,
         "phone": _phoneController.text,
-        'remainingAmount':0,
-        'totalCredit':0,
-        'totalDebit':0
+        'remainingAmount': 0,
+        'totalCredit': 0,
+        'totalDebit': 0
       };
 
       await authServices.createUser(data, context);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Dashboard()),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => Dashboard()),
+      // );
       setState(() {
         isLoader = false;
       }); // ScaffoldMessenger.of(_formkey.currentContext!).showSnackBar(
