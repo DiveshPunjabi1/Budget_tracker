@@ -50,7 +50,7 @@ class _TimeLineMonthState extends State<TimeLineMonth> {
               onTap: () {
                 setState(() {
                   currentMonth = months[index];
-                  widget.onChanged( months[index]);
+                  widget.onChanged(months[index]);
                 });
                 scrollToSelectedMonth();
               },
