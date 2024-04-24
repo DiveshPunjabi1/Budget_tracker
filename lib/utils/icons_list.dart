@@ -41,7 +41,7 @@ class AppIcons {
       "icon": FontAwesomeIcons.utensils,
     },
     {
-      "name": "Gas Filling",
+      "name": "Entertainment",
       "icon": FontAwesomeIcons.gasPump,
     },
     {

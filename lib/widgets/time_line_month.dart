@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 
 class TimeLineMonth extends StatefulWidget {
   const TimeLineMonth({super.key, required this.onChanged});
+  // const TimeLineMonth({Key? key, required this.onChanged}) : super(key: key);
+
   final ValueChanged<String?> onChanged;
 
   @override
@@ -17,7 +19,7 @@ class _TimeLineMonthState extends State<TimeLineMonth> {
   void initState() {
     super.initState();
     DateTime now = DateTime.now();
-    for (int i = -18; 1 <= 0; i++) {
+    for (int i = -18; i <= 0; i++) {
       months.add(
           DateFormat('MMM y').format(DateTime(now.year, now.month + i, 1)));
     }
